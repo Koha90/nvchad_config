@@ -6,6 +6,7 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jj", "<ESC>")
+
 -- go plugins
 map("n", "<leader>gsj", "<cmd> GoTagAdd json <cr>", { desc = "Add json struct tags" })
 map("n", "<leader>gsy", "<cmd> GoTagAdd yaml <cr>", { desc = "Add yaml struct tags" })
@@ -53,6 +54,16 @@ map("n", "<leader>ld", function()
   end,
   { desc = "Open Lazydocker floating window" }
 )
+
+-- Lsp 
+map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostics" })
+
+-- Format
+map("n", "<leader>cf", function()
+  vim.lsp.buf.format { async = true }
+end, { desc = "Format file" })
 
 -- Save file in ctrl+s
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
