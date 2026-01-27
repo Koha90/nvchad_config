@@ -104,10 +104,11 @@ return {
     end,
   },
 
-  {
-    "sqls-server/sqls.vim",
-    dependencies = { "junegunn/fzf"},
-  },
+  -- {
+  --   "sqls-server/sqls.vim",
+  --   dependencies = { "junegunn/fzf"},
+  --   enable = false,
+  -- },
 
   {
     '2kabhishek/nerdy.nvim',

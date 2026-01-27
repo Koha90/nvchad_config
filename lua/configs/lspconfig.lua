@@ -90,8 +90,12 @@ vim.lsp.config("sqls", {
       connections = {
         {
           driver = vim.env.DB_DRIVER or "postgresql",
-          host = vim.env.DB_HOST or "127.0.0.1",
-          port = tonumber(vim.env.DB_PORT) or 5432,
+          network = "tcp",
+          addr = string.format(
+            "%s:%s",
+            vim.env.DB_HOST or "127.0.0.1",
+            vim.env.DB_PORT or "5432"
+          ),
           user = vim.env.DB_USER or "prostgres",
           password = vim.env.DB_PASSWORD or "secret",
           database = vim.env.DB_DATABASE or "mydb",
