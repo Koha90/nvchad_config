@@ -14,17 +14,17 @@ return {
   },
 
   -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
-  --
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 		  "vim", "lua", "vimdoc",
-  --       "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  { import = "nvchad.blink.lazyspec" },
+
+  {
+  	"nvim-treesitter/nvim-treesitter",
+  	opts = {
+  		ensure_installed = {
+  		  "vim", "lua", "vimdoc",
+        "html", "css"
+  		},
+  	},
+  },
 
   {
     "kdheepak/lazygit.nvim",
@@ -97,10 +97,32 @@ return {
           TODO = { icon = " ", color = "info" },
           HACK = { icon = " ", color = "warning" },
           WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-          PERF = { icon = " ", color = "default", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-          NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+          PERF = { icon = " ", color = "default", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+          NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         },
       }
     end,
+  },
+
+  {
+    "sqls-server/sqls.vim",
+    dependencies = { "junegunn/fzf"},
+  },
+
+  {
+    '2kabhishek/nerdy.nvim',
+    dependencies = {
+        'folke/snacks.nvim',
+    },
+    cmd = 'Nerdy',
+    opts = {
+        max_recents = 30, -- Configure recent icons limit
+        copy_to_clipboard = false, -- Copy glyph to clipboard instead of inserting
+        copy_register = '+', -- Register to use for copying (if `copy_to_clipboard` is true)
+    },
+    keys = {
+        { '<leader>in', ':Nerdy list<CR>', desc = "Browse nerd icons" },
+        { '<leader>iN', ':Nerdy recents<CR>', desc = "Browse recent nerd icons" },
+    },
   },
 }
