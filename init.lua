@@ -35,3 +35,6 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.g.nvim_tree_ignore_directories = { 'bin', 'database' }
+vim.g.nvim_tree_watch_max_events = 100

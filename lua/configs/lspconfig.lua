@@ -18,6 +18,7 @@ vim.lsp.config("gopls", {
       analyses = {
         unusedparams = true,
         shadow = true,
+        fillreturns = false,
       },
       staticcheck = true,
       completeUnimported = true,

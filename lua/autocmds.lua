@@ -23,3 +23,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function ()
+    vim.lsp.buf.format({ async = false })
+    -- vim.fn.system("goimports-reviser " .. vim.fn.expand("%"))
+    -- vim.cmd("e")
+  end,
+})
