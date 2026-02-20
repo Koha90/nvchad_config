@@ -1,6 +1,5 @@
 require("nvchad.configs.lspconfig").defaults()
 
-
 local servers = { "html", "cssls" }
 vim.lsp.enable(servers)
 
@@ -27,7 +26,6 @@ vim.lsp.config("gopls", {
     },
   },
 })
-
 
 -- Lua
 vim.lsp.config("lua_ls", {
@@ -71,14 +69,14 @@ vim.lsp.config("rust_analyzer", {
         allFeatures = true,
       },
       checkOnSave = {
-        command = "clippy"
+        command = "clippy",
       },
     },
   },
 })
 
 -- SQL
-local load_env = require("configs.load_env")
+local load_env = require "configs.load_env"
 load_env.load()
 
 vim.lsp.config("sqls", {
@@ -92,28 +90,24 @@ vim.lsp.config("sqls", {
         {
           driver = vim.env.DB_DRIVER or "postgresql",
           network = "tcp",
-          addr = string.format(
-            "%s:%s",
-            vim.env.DB_HOST or "127.0.0.1",
-            vim.env.DB_PORT or "5432"
-          ),
+          addr = string.format("%s:%s", vim.env.DB_HOST or "127.0.0.1", vim.env.DB_PORT or "5432"),
           user = vim.env.DB_USER or "prostgres",
           password = vim.env.DB_PASSWORD or "secret",
           database = vim.env.DB_DATABASE or "mydb",
           schema = vim.env.DB_SCHEMA or "public",
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 })
 
 -- enable servers
-vim.lsp.enable({
+vim.lsp.enable {
   "gopls",
   "lua_ls",
   "tsserver",
   "rust_analyzer",
   "sqls",
-})
+}
 
--- read :h vim.lsp.config for changing options of lsp servers 
+-- read :h vim.lsp.config for changing options of lsp servers
