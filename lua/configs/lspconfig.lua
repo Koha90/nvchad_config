@@ -75,6 +75,22 @@ vim.lsp.config("rust_analyzer", {
   },
 })
 
+-- Python
+vim.lsp.config("pyright", {
+  cmd = { "pyright-langserver", "--stdio" },
+  filetypes = { "python" },
+  root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "git" },
+  settings = {
+    python = {
+      analyses = {
+        typeCheckingMode = "basic",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
+})
+
 -- SQL
 
 -- enable servers
@@ -83,6 +99,7 @@ vim.lsp.enable {
   "lua_ls",
   "tsserver",
   "rust_analyzer",
+  "pyright",
 }
 
 -- read :h vim.lsp.config for changing options of lsp servers

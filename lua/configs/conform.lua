@@ -1,11 +1,12 @@
-local conform = require("conform")
+local conform = require "conform"
 
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    go = { "gofumpt", "goimports", "golines", "goimports-reviser"},
+    go = { "gofumpt", "goimports", "golines", "goimports-reviser" },
+    python = { "ruff" },
   },
 
   format_on_save = {
@@ -23,7 +24,7 @@ conform.formatters.goimports_reviser = {
     "-format",
     "$FILENAME",
   },
-  stdin = false
+  stdin = false,
 }
 
 return options
