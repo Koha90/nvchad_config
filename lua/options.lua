@@ -13,3 +13,6 @@ o.swapfile = false
 o.guifont = "JetBrainsMono Nerd Font:h12"
 
 vim.opt.spelllang = { "en", "ru" }
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

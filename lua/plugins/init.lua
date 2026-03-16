@@ -60,8 +60,13 @@ return {
         "javascript",
         "typescript",
         "markdown",
+        "qmljs",
+        "json",
+        "bash",
+        "yaml",
       },
       highlight = { enable = true },
+      fold = { enable = true },
     },
   },
 
@@ -118,6 +123,40 @@ return {
     keys = {
       { "<leader>in", ":Nerdy list<CR>", desc = "Browse nerd icons" },
       { "<leader>iN", ":Nerdy recents<CR>", desc = "Browse recent nerd icons" },
+    },
+  },
+
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    version = false,
+    build = "make",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "echasnovski/mini.pick",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      provider = "openai",
+      providers = {
+        openai = {
+          model = "gpt-5-mini",
+        },
+      },
+      input = {
+        provider = "snacks",
+        provider_opts = {
+          title = "Avante Input",
+          icon = " ",
+        },
+      },
+
+      selctor = {
+        provider = "mini_pick",
+      },
     },
   },
 }

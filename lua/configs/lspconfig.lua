@@ -91,6 +91,32 @@ vim.lsp.config("pyright", {
   },
 })
 
+-- QML
+vim.lsp.config("qmlls", {
+  cmd = { "qmlls6" },
+  filetypes = { "qml" },
+  root_dir = function(bufnr, on_dir)
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    local root = vim.fs.root(fname, {
+      ".git",
+      ".qmlls.ini",
+    })
+    on_dir(root or vim.fs.dirname(fname))
+  end,
+})
+
+vim.lsp.enable "qmlls"
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qml",
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
 -- SQL
 
 -- enable servers
@@ -100,6 +126,7 @@ vim.lsp.enable {
   "tsserver",
   "rust_analyzer",
   "pyright",
+  "qmlls",
 }
 
 -- read :h vim.lsp.config for changing options of lsp servers
