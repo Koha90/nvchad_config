@@ -53,6 +53,7 @@ return {
         "vimdoc",
         "html",
         "css",
+        "scss",
         "go",
         "rust",
         "cmake",
