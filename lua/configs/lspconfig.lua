@@ -47,14 +47,7 @@ vim.lsp.config("lua_ls", {
 })
 
 -- TypeScript
-vim.lsp.config("tsserver", {
-  cmd = { "typescript-language-server", "--stdio" },
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-  },
+vim.lsp.config("ts_ls", {
   root_markers = { "package.json", "tsconfig.json", ".git" },
 })
 
@@ -123,7 +116,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.lsp.enable {
   "gopls",
   "lua_ls",
-  "tsserver",
+  "ts_ls",
   "rust_analyzer",
   "pyright",
   "qmlls",

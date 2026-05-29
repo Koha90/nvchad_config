@@ -59,6 +59,7 @@ return {
         "python",
         "javascript",
         "typescript",
+        "tsx",
         "markdown",
         "qmljs",
         "json",
@@ -67,6 +68,18 @@ return {
       },
       highlight = { enable = true },
       fold = { enable = true },
+    },
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false,
+      },
     },
   },
 
