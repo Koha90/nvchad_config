@@ -23,14 +23,14 @@ end, { desc = "Debug last go test" })
 
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <cr>", { desc = "Add breakpoint at line" })
 map("n", "<leader>dus", function()
-  local widgets = require("dap.ui.widgets");
-  local sidebar = widgets.sidebar(widgets.scopes);
-  sidebar.open();
+  local widgets = require "dap.ui.widgets"
+  local sidebar = widgets.sidebar(widgets.scopes)
+  sidebar.open()
 end, { desc = "Open debugging sidebar" })
 map("n", "<leader>duc", function()
-  local widgets = require("dap.ui.widgets");
-  local sidebar = widgets.sidebar(widgets.scopes);
-  sidebar.close();
+  local widgets = require "dap.ui.widgets"
+  local sidebar = widgets.sidebar(widgets.scopes)
+  sidebar.close()
 end, { desc = "Close debugging sidebar" })
 
 map("n", "<leader>gtt", "<cmd> GoTest <cr>", { desc = "Go test file" })
@@ -50,12 +50,10 @@ map("n", "<leader>lg", "<cmd> LazyGit <cr>", { desc = "LazyGit" })
 
 -- lazydocker
 map("n", "<leader>ld", function()
-    require("lazydocker").open()
-  end,
-  { desc = "Open Lazydocker floating window" }
-)
+  require("lazydocker").open()
+end, { desc = "Open Lazydocker floating window" })
 
--- Lsp 
+-- Lsp
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostics" })
