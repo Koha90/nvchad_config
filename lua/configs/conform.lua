@@ -16,7 +16,7 @@ local options = {
     json = { "prettier" },
 
     go = { "gofumpt", "goimports", "golines", "goimports-reviser" },
-    python = { "ruff" },
+    python = { "ruff_format" },
   },
 
   format_on_save = {

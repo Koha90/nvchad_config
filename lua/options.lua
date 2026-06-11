@@ -16,3 +16,10 @@ vim.opt.spelllang = { "en", "ru" }
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove { "r", "o" }
+  end,
+})

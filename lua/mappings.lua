@@ -65,3 +65,7 @@ end, { desc = "Format file" })
 
 -- Save file in ctrl+s
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+map("n", "<leader>cs", "<cmd>ScssModuleStub<CR>", {
+  desc = "SCSS module: create missing class stubs",
+})
